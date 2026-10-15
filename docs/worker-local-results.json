@@ -1,0 +1,152 @@
+[
+  {
+    "mode": "normal",
+    "state_comparison": {
+      "mode": "normal",
+      "samples": [
+        {
+          "boot_id": "6b2838f96e6c7237",
+          "count": 1,
+          "marker": "first",
+          "elapsed_ms": 19
+        },
+        {
+          "boot_id": "29c9f65cf8dc7572",
+          "count": 1,
+          "marker": "second",
+          "elapsed_ms": 1
+        },
+        {
+          "boot_id": "24c2f92c021b742f",
+          "count": 1,
+          "marker": null,
+          "elapsed_ms": 1
+        }
+      ],
+      "status": "passed"
+    },
+    "launcher_events": [
+      {
+        "event": "spawn",
+        "elapsed_ms": 0,
+        "binary": "/app/bin/frankenphp",
+        "args": [
+          "php-server",
+          "--listen",
+          "0.0.0.0:3000",
+          "--root",
+          "/app/public",
+          "--access-log"
+        ],
+        "mode": "normal"
+      },
+      {
+        "event": "ready",
+        "elapsed_ms": 109,
+        "endpoint": "0.0.0.0:3000",
+        "child_pid": 14,
+        "mode": "normal"
+      },
+      {
+        "event": "stopping",
+        "elapsed_ms": 541,
+        "signal": "SIGTERM"
+      },
+      {
+        "event": "child_exit",
+        "elapsed_ms": 562,
+        "code": 0,
+        "signal": null
+      }
+    ],
+    "exit_code": "0"
+  },
+  {
+    "mode": "worker",
+    "state_comparison": {
+      "mode": "worker",
+      "samples": [
+        {
+          "boot_id": "5a7a4231f44ed67e",
+          "count": 1,
+          "marker": "first",
+          "elapsed_ms": 16
+        },
+        {
+          "boot_id": "5a7a4231f44ed67e",
+          "count": 2,
+          "marker": "second",
+          "elapsed_ms": 1
+        },
+        {
+          "boot_id": "5a7a4231f44ed67e",
+          "count": 3,
+          "marker": null,
+          "elapsed_ms": 1
+        }
+      ],
+      "status": "passed"
+    },
+    "launcher_events": [
+      {
+        "event": "spawn",
+        "elapsed_ms": 0,
+        "binary": "/app/bin/frankenphp",
+        "args": [
+          "php-server",
+          "--listen",
+          "0.0.0.0:3000",
+          "--root",
+          "/app/public",
+          "--access-log",
+          "--worker",
+          "/app/public/index.php,1"
+        ],
+        "mode": "worker"
+      },
+      {
+        "event": "ready",
+        "elapsed_ms": 58,
+        "endpoint": "0.0.0.0:3000",
+        "child_pid": 14,
+        "mode": "worker"
+      },
+      {
+        "event": "stopping",
+        "elapsed_ms": 368,
+        "signal": "SIGTERM"
+      },
+      {
+        "event": "child_exit",
+        "elapsed_ms": 387,
+        "code": 0,
+        "signal": null
+      }
+    ],
+    "exit_code": "0",
+    "after_restart": {
+      "mode": "worker",
+      "samples": [
+        {
+          "boot_id": "c8a1d474ef7f2be6",
+          "count": 1,
+          "marker": "first",
+          "elapsed_ms": 18
+        },
+        {
+          "boot_id": "c8a1d474ef7f2be6",
+          "count": 2,
+          "marker": "second",
+          "elapsed_ms": 1
+        },
+        {
+          "boot_id": "c8a1d474ef7f2be6",
+          "count": 3,
+          "marker": null,
+          "elapsed_ms": 1
+        }
+      ],
+      "status": "passed"
+    }
+  }
+]

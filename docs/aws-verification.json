@@ -1,0 +1,178 @@
+{
+  "date": "2026-10-15",
+  "region": "ap-northeast-1",
+  "functionName": "normal-verification-2",
+  "revision": "normal-revision-1",
+  "startedUtc": "2026-10-15T06:53:56.836386+00:00",
+  "finishedUtc": "2026-10-15T06:54:52.695316+00:00",
+  "configuration": {
+    "runtime": "nodejs24.x",
+    "authType": "IamAuth",
+    "maxEnvironments": 2,
+    "rateLimit": 100,
+    "maxConcurrencyPerEnvironment": 1,
+    "timeoutSeconds": 5
+  },
+  "checks": [
+    {
+      "method": "GET",
+      "path": "/hello",
+      "status": 200,
+      "elapsed_ms": 1522,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "X-Poc-Runtime": "FrankenPHP",
+        "lambda-web-logstream": "normal-logstream-1",
+        "lambda-web-request-id": "normal-request-1"
+      },
+      "body": "{\"service\":\"staticphp-lambda-web-poc\",\"status\":\"ok\",\"message\":\"Hello from PHP!\",\"path\":\"/hello\",\"php_version\":\"8.5.11\",\"sapi\":\"frankenphp\",\"zts\":true,\"pid\":13,\"request_id\":\"normal-request-1\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/",
+      "status": 200,
+      "elapsed_ms": 105,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "X-Poc-Runtime": "FrankenPHP",
+        "lambda-web-logstream": "normal-logstream-1",
+        "lambda-web-request-id": "normal-request-2"
+      },
+      "body": "{\"service\":\"staticphp-lambda-web-poc\",\"status\":\"ok\",\"message\":\"Hello from PHP!\",\"path\":\"/\",\"php_version\":\"8.5.11\",\"sapi\":\"frankenphp\",\"zts\":true,\"pid\":13,\"request_id\":\"normal-request-2\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/healthz",
+      "status": 200,
+      "elapsed_ms": 132,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "X-Poc-Runtime": "FrankenPHP",
+        "lambda-web-logstream": "normal-logstream-2",
+        "lambda-web-request-id": "normal-request-3"
+      },
+      "body": "{\"service\":\"staticphp-lambda-web-poc\",\"status\":\"ok\",\"message\":\"Hello from PHP!\",\"path\":\"/healthz\",\"php_version\":\"8.5.11\",\"sapi\":\"frankenphp\",\"zts\":true,\"pid\":13,\"request_id\":\"normal-request-3\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/missing",
+      "status": 404,
+      "elapsed_ms": 133,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "X-Poc-Runtime": "FrankenPHP",
+        "lambda-web-logstream": "normal-logstream-1",
+        "lambda-web-request-id": "normal-request-4"
+      },
+      "body": "{\"error\":\"Not found\"}\n"
+    },
+    {
+      "method": "POST",
+      "path": "/hello",
+      "status": 405,
+      "elapsed_ms": 101,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "X-Poc-Runtime": "FrankenPHP",
+        "lambda-web-logstream": "normal-logstream-2",
+        "lambda-web-request-id": "normal-request-5"
+      },
+      "body": "{\"error\":\"Method not allowed\"}\n"
+    },
+    {
+      "method": "HEAD",
+      "path": "/hello",
+      "status": 200,
+      "elapsed_ms": 133,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "X-Poc-Runtime": "FrankenPHP",
+        "lambda-web-logstream": "normal-logstream-1",
+        "lambda-web-request-id": "normal-request-6"
+      },
+      "body": ""
+    }
+  ],
+  "initializationMetrics": [
+    {
+      "totalDurationMs": 745.0,
+      "totalCpuTimeMs": 488.0,
+      "maxMemoryUsageMb": 274
+    },
+    {
+      "totalDurationMs": 852.0,
+      "totalCpuTimeMs": 508.0,
+      "maxMemoryUsageMb": 283
+    }
+  ],
+  "launcherReady": [
+    {
+      "event": "ready",
+      "elapsed_ms": 325,
+      "endpoint": "0.0.0.0:3000",
+      "child_pid": 13
+    },
+    {
+      "event": "ready",
+      "elapsed_ms": 329,
+      "endpoint": "0.0.0.0:3000",
+      "child_pid": 13
+    }
+  ],
+  "cleanup": {
+    "resources": [
+      {
+        "attempt": "normal-verification-1",
+        "resource": "function",
+        "absent": true
+      },
+      {
+        "attempt": "normal-verification-1",
+        "resource": "bucket",
+        "absent": true
+      },
+      {
+        "attempt": "normal-verification-1",
+        "resource": "role",
+        "absent": true
+      },
+      {
+        "attempt": "normal-verification-1",
+        "resource": "logs",
+        "absent": true
+      },
+      {
+        "attempt": "normal-verification-2",
+        "resource": "function",
+        "absent": true
+      },
+      {
+        "attempt": "normal-verification-2",
+        "resource": "bucket",
+        "absent": true
+      },
+      {
+        "attempt": "normal-verification-2",
+        "resource": "role",
+        "absent": true
+      },
+      {
+        "attempt": "normal-verification-2",
+        "resource": "logs",
+        "absent": true
+      }
+    ],
+    "accountSettings": {
+      "accountQuotas": {
+        "maxTotalArmVCpus": 200,
+        "maxTotalRateLimit": 10000,
+        "maxRevisionsPerFunction": 50,
+        "maxEndpointsPerFunction": 10
+      },
+      "accountUsage": {
+        "functionCount": 0
+      }
+    }
+  },
+  "publicDataNote": "Resource names, request IDs, log streams and environment IDs are replaced with labels; measurements and state relationships are unchanged."
+}

@@ -1,0 +1,13 @@
+dist/
+work/
+node_modules/
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+!.env.example
+.aws/
+*.pem
+*.key

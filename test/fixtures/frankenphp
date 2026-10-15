@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+const http = require('node:http');
+if (process.env.FAKE_MODE === 'exit') process.exit(7);
+if (process.env.FAKE_MODE === 'hang') { setInterval(() => {}, 1000); return; }
+if (process.env.FRANKENPHP_MODE === 'worker' && !process.argv.some(arg => arg.endsWith('/public/index.php,1'))) process.exit(9);
+const address = process.argv[process.argv.indexOf('--listen') + 1];
+const url = new URL(`http://${address}`);
+const server = http.createServer((req, res) => {
+  res.setHeader('content-type', 'application/json');
+  res.end(JSON.stringify({ service: 'staticphp-lambda-web-poc', status: 'ok', mode: process.env.FAKE_MODE === 'wrong-mode' ? 'normal' : (process.env.FRANKENPHP_MODE || 'normal') }));
+});
+server.listen(Number(url.port), url.hostname.replace(/^\[|\]$/g, ''));
+process.on('SIGTERM', () => {
+  console.log('fixture received SIGTERM');
+  server.close(() => process.exit(0));
+});

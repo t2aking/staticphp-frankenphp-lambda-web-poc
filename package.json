@@ -1,0 +1,15 @@
+{
+  "name": "staticphp-lambda-web-poc",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Experimental Node 24 launcher for StaticPHP-built FrankenPHP on Lambda Web Functions",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --test test/*.test.js",
+    "smoke": "node scripts/smoke.js",
+    "compare": "node scripts/compare-modes.js"
+  }
+}

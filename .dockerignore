@@ -1,0 +1,8 @@
+*
+!Dockerfile
+!index.js
+!package.json
+!lib/**
+!public/**
+!scripts/smoke.js
+!scripts/compare-modes.js

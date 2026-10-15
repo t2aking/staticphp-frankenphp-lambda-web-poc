@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-15",
+  "region": "ap-northeast-1",
+  "functionName": "worker-verification-1",
+  "startedUtc": "2026-10-15T07:15:13.498552+00:00",
+  "finishedUtc": "2026-10-15T07:17:33.839328+00:00",
+  "configuration": {
+    "mode": "worker",
+    "workersPerEnvironment": 1,
+    "authType": "IamAuth",
+    "maxEnvironments": 2,
+    "rateLimit": 100,
+    "maxConcurrencyPerEnvironment": 1,
+    "timeoutSeconds": 5
+  },
+  "checks": [
+    {
+      "method": "GET",
+      "path": "/hello",
+      "status": 200,
+      "elapsed_ms": 1184,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "X-Poc-Runtime": "FrankenPHP",
+        "lambda-web-logstream": "worker-logstream-1",
+        "lambda-web-request-id": "worker-request-1"
+      },
+      "body": "{\"service\":\"staticphp-lambda-web-poc\",\"status\":\"ok\",\"mode\":\"worker\",\"message\":\"Hello from PHP!\",\"path\":\"/hello\",\"php_version\":\"8.5.11\",\"sapi\":\"frankenphp\",\"zts\":true,\"pid\":13,\"request_id\":\"worker-request-1\"}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/state",
+      "status": 200,
+      "elapsed_ms": 133,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "X-Poc-Runtime": "FrankenPHP",
+        "lambda-web-logstream": "worker-logstream-1",
+        "lambda-web-request-id": "worker-request-2"
+      },
+      "body": "{\"service\":\"staticphp-lambda-web-poc\",\"status\":\"ok\",\"mode\":\"worker\",\"message\":\"Hello from PHP!\",\"path\":\"/state\",\"php_version\":\"8.5.11\",\"sapi\":\"frankenphp\",\"zts\":true,\"pid\":13,\"request_id\":\"worker-request-2\",\"state\":{\"boot_id\":\"5769c2d376c6d6ce\",\"count\":1,\"marker\":\"first\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/state",
+      "status": 200,
+      "elapsed_ms": 95,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "X-Poc-Runtime": "FrankenPHP",
+        "lambda-web-logstream": "worker-logstream-2",
+        "lambda-web-request-id": "worker-request-3"
+      },
+      "body": "{\"service\":\"staticphp-lambda-web-poc\",\"status\":\"ok\",\"mode\":\"worker\",\"message\":\"Hello from PHP!\",\"path\":\"/state\",\"php_version\":\"8.5.11\",\"sapi\":\"frankenphp\",\"zts\":true,\"pid\":13,\"request_id\":\"worker-request-3\",\"state\":{\"boot_id\":\"68b5cb66b19e60bd\",\"count\":1,\"marker\":\"second\"}}\n"
+    },
+    {
+      "method": "GET",
+      "path": "/state",
+      "status": 200,
+      "elapsed_ms": 124,
+      "headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "X-Poc-Runtime": "FrankenPHP",
+        "lambda-web-logstream": "worker-logstream-1",
+        "lambda-web-request-id": "worker-request-4"
+      },
+      "body": "{\"service\":\"staticphp-lambda-web-poc\",\"status\":\"ok\",\"mode\":\"worker\",\"message\":\"Hello from PHP!\",\"path\":\"/state\",\"php_version\":\"8.5.11\",\"sapi\":\"frankenphp\",\"zts\":true,\"pid\":13,\"request_id\":\"worker-request-4\",\"state\":{\"boot_id\":\"5769c2d376c6d6ce\",\"count\":2,\"marker\":null}}\n"
+    }
+  ],
+  "stateGroups": {
+    "5769c2d376c6d6ce": [
+      1,
+      2
+    ],
+    "68b5cb66b19e60bd": [
+      1
+    ]
+  },
+  "stateRetentionConfirmed": true,
+  "initializationReports": [
+    {
+      "status": "success",
+      "instanceId": "worker-environment-1",
+      "initializationType": "native-http",
+      "metrics": {
+        "totalDurationMs": 569.0,
+        "totalCpuTimeMs": 369.0,
+        "maxMemoryUsageMb": 278
+      }
+    }
+  ],
+  "launcherReady": [
+    {
+      "event": "ready",
+      "elapsed_ms": 269,
+      "endpoint": "0.0.0.0:3000",
+      "child_pid": 13,
+      "mode": "worker"
+    }
+  ],
+  "observedWorkerThreadCounts": [
+    1
+  ],
+  "cleanup": {
+    "resources": [
+      {
+        "attempt": "worker-verification-1",
+        "resource": "function",
+        "absent": true
+      },
+      {
+        "attempt": "worker-verification-1",
+        "resource": "bucket",
+        "absent": true
+      },
+      {
+        "attempt": "worker-verification-1",
+        "resource": "role",
+        "absent": true
+      },
+      {
+        "attempt": "worker-verification-1",
+        "resource": "logs",
+        "absent": true
+      }
+    ],
+    "accountSettings": {
+      "accountQuotas": {
+        "maxTotalArmVCpus": 200,
+        "maxTotalRateLimit": 10000,
+        "maxRevisionsPerFunction": 50,
+        "maxEndpointsPerFunction": 10
+      },
+      "accountUsage": {
+        "functionCount": 0
+      }
+    }
+  },
+  "publicDataNote": "Resource names, request IDs, log streams and environment IDs are replaced with labels; measurements and state relationships are unchanged."
+}
